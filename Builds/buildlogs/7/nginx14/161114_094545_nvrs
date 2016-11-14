@@ -1,0 +1,5 @@
+nginx14-build	nginx14-build-0:1.1-3.el7.x86_64
+nginx14	nginx14-0:1.1-3.el7.x86_64
+nginx14-nginx	nginx14-nginx-1:1.4.4-10.el7.x86_64
+nginx14-runtime	nginx14-runtime-0:1.1-3.el7.x86_64
+nginx14-scldevel	nginx14-scldevel-0:1.1-3.el7.x86_64

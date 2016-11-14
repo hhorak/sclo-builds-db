@@ -1,0 +1,5 @@
+nginx16-build	nginx16-build-0:1.2-2.el6.x86_64
+nginx16	nginx16-0:1.2-2.el6.x86_64
+nginx16-nginx	nginx16-nginx-1:1.6.2-3.el6.x86_64
+nginx16-runtime	nginx16-runtime-0:1.2-2.el6.x86_64
+nginx16-scldevel	nginx16-scldevel-0:1.2-2.el6.x86_64

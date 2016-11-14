@@ -1,0 +1,11 @@
+rh-varnish4-build	rh-varnish4-build-0:2.1-6.el6.x86_64
+rh-varnish4-jemalloc-devel	rh-varnish4-jemalloc-devel-0:3.6.0-12.el6.x86_64
+rh-varnish4-jemalloc	rh-varnish4-jemalloc-0:3.6.0-12.el6.x86_64
+rh-varnish4	rh-varnish4-0:2.1-6.el6.x86_64
+rh-varnish4-runtime	rh-varnish4-runtime-0:2.1-6.el6.x86_64
+rh-varnish4-scldevel	rh-varnish4-scldevel-0:2.1-6.el6.x86_64
+rh-varnish4-varnish-docs	rh-varnish4-varnish-docs-0:4.0.3-13.el6.x86_64
+rh-varnish4-varnish-libs-devel	rh-varnish4-varnish-libs-devel-0:4.0.3-13.el6.x86_64
+rh-varnish4-varnish-libs	rh-varnish4-varnish-libs-0:4.0.3-13.el6.x86_64
+rh-varnish4-varnish	rh-varnish4-varnish-0:4.0.3-13.el6.x86_64
+rh-varnish4-varnish-selinux	rh-varnish4-varnish-selinux-0:4.0.3-13.el6.x86_64

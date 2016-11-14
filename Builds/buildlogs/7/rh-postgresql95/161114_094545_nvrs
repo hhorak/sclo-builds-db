@@ -1,0 +1,15 @@
+rh-postgresql95-build	rh-postgresql95-build-0:2.2-2.el7.x86_64
+rh-postgresql95-postgresql-contrib	rh-postgresql95-postgresql-contrib-0:9.5.2-2.el7.x86_64
+rh-postgresql95-postgresql-devel	rh-postgresql95-postgresql-devel-0:9.5.2-2.el7.x86_64
+rh-postgresql95-postgresql-docs	rh-postgresql95-postgresql-docs-0:9.5.2-2.el7.x86_64
+rh-postgresql95-postgresql-libs	rh-postgresql95-postgresql-libs-0:9.5.2-2.el7.x86_64
+rh-postgresql95-postgresql-plperl	rh-postgresql95-postgresql-plperl-0:9.5.2-2.el7.x86_64
+rh-postgresql95-postgresql-plpython	rh-postgresql95-postgresql-plpython-0:9.5.2-2.el7.x86_64
+rh-postgresql95-postgresql-pltcl	rh-postgresql95-postgresql-pltcl-0:9.5.2-2.el7.x86_64
+rh-postgresql95-postgresql	rh-postgresql95-postgresql-0:9.5.2-2.el7.x86_64
+rh-postgresql95-postgresql-server	rh-postgresql95-postgresql-server-0:9.5.2-2.el7.x86_64
+rh-postgresql95-postgresql-static	rh-postgresql95-postgresql-static-0:9.5.2-2.el7.x86_64
+rh-postgresql95-postgresql-test	rh-postgresql95-postgresql-test-0:9.5.2-2.el7.x86_64
+rh-postgresql95	rh-postgresql95-0:2.2-2.el7.x86_64
+rh-postgresql95-runtime	rh-postgresql95-runtime-0:2.2-2.el7.x86_64
+rh-postgresql95-scldevel	rh-postgresql95-scldevel-0:2.2-2.el7.x86_64

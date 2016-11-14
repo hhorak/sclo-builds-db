@@ -1,0 +1,10 @@
+mysql55-build	mysql55-build-0:1.1-23.sc1.el6.x86_64
+mysql55	mysql55-0:1.1-23.sc1.el6.x86_64
+mysql55-mysql-bench	mysql55-mysql-bench-0:5.5.45-1.el6.x86_64
+mysql55-mysql-devel	mysql55-mysql-devel-0:5.5.45-1.el6.x86_64
+mysql55-mysql-libs	mysql55-mysql-libs-0:5.5.45-1.el6.x86_64
+mysql55-mysql	mysql55-mysql-0:5.5.45-1.el6.x86_64
+mysql55-mysql-server	mysql55-mysql-server-0:5.5.45-1.el6.x86_64
+mysql55-mysql-test	mysql55-mysql-test-0:5.5.45-1.el6.x86_64
+mysql55-runtime	mysql55-runtime-0:1.1-23.sc1.el6.x86_64
+mysql55-scldevel	mysql55-scldevel-0:1.1-23.sc1.el6.x86_64
