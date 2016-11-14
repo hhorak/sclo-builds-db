@@ -1,0 +1,212 @@
+#!/bin/bash
+
+set -e
+
+RUN_TIMESTAMP=$(date '+%y%m%d_%H%M%S')
+OUTPUT=./Builds
+OUTPUT_REPORTS=./Reports
+
+usage() {
+  echo "`basename $0` <action>"
+  echo
+  echo "Actions:"
+  echo "  store_nvrs"
+  echo "  store_report < mirror | buildlogs > [ since ]"
+  echo "  mirror_candidates [ since ]"
+  exit 1
+}
+
+get_nevra_components() {
+  echo "$1" | sed -e 's/^\(.*\)-\([^-]*\)-\([^-]*\)$/\1 \2 \3/'
+}
+
+rpmcmp() {
+  read aname aver arel <<<$(get_nevra_components "$1")
+  read bname bver brel <<<$(get_nevra_components "$2")
+  rpmdev-vercmp "${aver}-${arel}" "${bver}-${brel}" >/dev/null
+  return $?
+}
+
+part_of_scl() {
+  pkg=$1
+  scl=$2
+  [[ "$pkg" =~ ^$scl- ]] && return 0
+  cat ~/upstreams/sclo-ci-tests/PackageLists/$scl/all | grep -e "^${pkg}$" >/dev/null && return 0
+  return 1
+}
+
+get_pkgs() {
+  repo=$1 ; shift
+  el_version=$1 ; shift
+  case "$repo" in
+    mirror) repourl=http://mirror.centos.org/centos-$el_version/$el_version/sclo/x86_64/rh/ ;;
+    buildlogs) repourl=http://buildlogs.centos.org/centos/$el_version/sclo/x86_64/rh/ ;;
+    *) echo "unknown repo $repo" >&2 ; exit 1 ;;
+  esac
+  echo "Getting packages from $repo ..." >&2
+  dnf repoquery -q --repofrompath=aaa,$repourl --disablerepo=\* --enablerepo=aaa --available --latest-limit=1 --qf '%{name} %{name}-%{epoch}:%{version}-%{release}.%{arch}\n' | sort -u
+}
+
+get_scls() {
+  el_version=$1 ; shift
+  cat ~/upstreams/sclo-ci-tests/PackageLists/collections-list-rh-el$el_version
+}
+
+add_to_file() {
+  fname=$1 ; shift
+  mkdir -p $(dirname $fname)
+  touch $fname
+  echo -e $@ >> $fname
+}
+
+put_to_list() {
+  el_version=$1 ; shift
+  repo=$1 ; shift
+  pkg=$1 ; shift
+  build=$1 ; shift
+  found=0
+  for scl in `get_scls $el_version` ; do
+    if part_of_scl $pkg $scl ; then
+      add_to_file $OUTPUT/$repo/$el_version/$scl/${RUN_TIMESTAMP}_nvrs "$pkg\t$build"
+      found=1
+      break
+    fi
+  done
+  if [ $found -eq 0 ] ; then
+    add_to_file $OUTPUT/$repo/$el_version/other/${RUN_TIMESTAMP}_nvrs "$pkg\t$build"
+  fi
+}
+
+store_nvrs() {
+  repo=$1 ; shift
+  for el_version in 6 7 ; do
+    i=0
+    get_pkgs $repo $el_version | while read pkg build ; do
+      [ -z "$pkg" ] && continue
+      echo -n "." >&2
+      [ $((++i%100)) -eq 0 ] && echo " ${i}" >&2
+      put_to_list "$el_version" "$repo" "$pkg" "$build"
+    done
+    echo >&2
+  done
+}
+
+get_newest_older() {
+  #set -x
+  el_version=$1 ; shift
+  repo=$1 ; shift
+  scl=$1 ; shift
+  endwith=${1-}
+  for l in $(ls $OUTPUT/$repo/$el_version/$scl/*_nvrs 2>/dev/null) ; do
+    fname=$(basename $l)
+    if [ -z "$endwith" ] || [ "$fname" '<' "$endwith" ] ; then
+      echo "$l"
+    fi
+  done | sort | tail -n 1
+}
+
+store_report() {
+  #set -x
+  repo=$1 ; shift
+  since=$1 ; shift
+  for el_version in 6 7 ; do
+    mkdir -p $OUTPUT_REPORTS/$repo/$el_version/
+    get_report "$since" "$repo" "$el_version" > $OUTPUT_REPORTS/$repo/$el_version/$RUN_TIMESTAMP
+  done
+}
+
+get_report() {
+  #set -x
+  since=$1 ; shift
+  repo=$1 ; shift
+  el_version=$1 ; shift
+  for scl in `get_scls $el_version` ; do
+    newest_older=$(get_newest_older "$el_version" "$repo" "$scl" "$since")
+    newest=$(get_newest_older "$el_version" "$repo" "$scl")
+    if [ -z "$newest_older" ] ; then
+      [ -f "$newest" ] && cat "$newest" || :
+    else
+      [ -f "$newest" ] && diff -up "$newest_older" "$newest" | grep -e '^+[^+]' | sed -e 's/^+//' || :
+    fi
+  done
+}
+
+store_mirror_candidates() {
+  since=$1 ; shift
+  for el_version in 6 7 ; do
+    mkdir -p $OUTPUT_REPORTS/buildlogs/$el_version/
+    get_mirror_candidates "$since" "$el_version" > $OUTPUT_REPORTS/buildlogs/$el_version/${RUN_TIMESTAMP}_2tag
+  done
+}
+
+get_mirror_candidates() {
+  #set -x
+  since=$1 ; shift
+  el_version=$1 ; shift
+  for scl in `get_scls $el_version` ; do
+    i=0
+    #echo "get_newest_older \"$el_version\" \"buildlogs\" \"$scl\" \"$since\"" >&2
+    older_buildlogs=$(get_newest_older "$el_version" "buildlogs" "$scl" "$since")
+    newest_mirror=$(get_newest_older "$el_version" "mirror" "$scl")
+    #echo "$older_buildlogs $newest_mirror" >&2
+    [ -f "$newest_mirror" ] || continue
+    [ -f "$older_buildlogs" ] || cat "$newest_mirror"
+    echo -n "$scl " >&2
+    cat "$older_buildlogs" | while read pkg build ; do
+      echo -n "." >&2
+      [ $((++i%100)) -eq 0 ] && echo " ${i}" >&2
+      #echo "$pkg" >&2
+      mirror_line=$(grep -e "^${pkg}\s" $newest_mirror | tail -n 1)
+      if [ -z "$mirror_line" ] ; then
+        echo -e "$pkg\t$build"
+      else
+        mirror_build=$(echo "$mirror_line" | sed -e 's/^\S*\s\(\S*\)$/\1/')
+        set +e
+        rpmcmp "$build" "$mirror_build"
+        if [ $? -eq 11 ] ; then
+          echo -e "$pkg\t$build"
+        fi
+        set -e
+      fi
+    done
+    echo >&2
+  done
+}
+
+if [ $# -eq 0 ] ; then
+  usage
+fi
+
+case "$1" in
+  store_nvrs)
+    store_nvrs buildlogs
+    store_nvrs mirror
+    ;;
+  store_report)
+    shift
+    store_report $@
+    ;;
+  mirror_candidates)
+    shift
+    store_mirror_candidates $@
+    ;;
+  *) usage ;;
+esac
+
+#get_report 161114
+
+#Pull gi
+#Get timestamp of this report
+#Get timestamp or latest
+#For s in scl (choosen or all)
+#  If latest then get date of last .sent
+#  Get list for scl <= date
+#  Get latest list for scl
+#  Get diff of those and get added only
+#  Store list to report
+
+# user workflow:
+# every week:
+#  get new stuff and announce it
+#  get stuff that was in buildlogs two weeks back and still is not in mirrors -> tag to mirrors
+
