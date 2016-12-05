@@ -1,0 +1,5 @@
+rh-nginx18-build	rh-nginx18-build-0:2.1-4.el7.x86_64
+rh-nginx18-nginx	rh-nginx18-nginx-1:1.8.0-4.el7.x86_64
+rh-nginx18	rh-nginx18-0:2.1-4.el7.x86_64
+rh-nginx18-runtime	rh-nginx18-runtime-0:2.1-4.el7.x86_64
+rh-nginx18-scldevel	rh-nginx18-scldevel-0:2.1-4.el7.x86_64

@@ -1,0 +1,8 @@
+devassist09-build	devassist09-build-0:1.2-4.el7.x86_64
+devassist09	devassist09-0:1.2-4.el7.x86_64
+devassist09-devassistant-assistants-dts	devassist09-devassistant-assistants-dts-0:3.0.0-0.4.ad45baa.el7.noarch
+devassist09-devassistant	devassist09-devassistant-0:0.9.3-3.el7.noarch
+devassist09-devassistant-doc	devassist09-devassistant-doc-0:0.9.3-3.el7.noarch
+devassist09-python-progress	devassist09-python-progress-0:1.2-4.el7.noarch
+devassist09-runtime	devassist09-runtime-0:1.2-4.el7.x86_64
+devassist09-scldevel	devassist09-scldevel-0:1.2-4.el7.x86_64

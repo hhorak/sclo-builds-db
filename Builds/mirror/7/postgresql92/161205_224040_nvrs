@@ -1,0 +1,15 @@
+postgresql92-build	postgresql92-build-0:1.1-20.el7.x86_64
+postgresql92	postgresql92-0:1.1-20.el7.x86_64
+postgresql92-postgresql-contrib	postgresql92-postgresql-contrib-0:9.2.13-1.el7.x86_64
+postgresql92-postgresql-devel	postgresql92-postgresql-devel-0:9.2.13-1.el7.x86_64
+postgresql92-postgresql-docs	postgresql92-postgresql-docs-0:9.2.13-1.el7.x86_64
+postgresql92-postgresql-libs	postgresql92-postgresql-libs-0:9.2.13-1.el7.x86_64
+postgresql92-postgresql-plperl	postgresql92-postgresql-plperl-0:9.2.13-1.el7.x86_64
+postgresql92-postgresql-plpython	postgresql92-postgresql-plpython-0:9.2.13-1.el7.x86_64
+postgresql92-postgresql-pltcl	postgresql92-postgresql-pltcl-0:9.2.13-1.el7.x86_64
+postgresql92-postgresql	postgresql92-postgresql-0:9.2.13-1.el7.x86_64
+postgresql92-postgresql-server	postgresql92-postgresql-server-0:9.2.13-1.el7.x86_64
+postgresql92-postgresql-test	postgresql92-postgresql-test-0:9.2.13-1.el7.x86_64
+postgresql92-postgresql-upgrade	postgresql92-postgresql-upgrade-0:9.2.13-1.el7.x86_64
+postgresql92-runtime	postgresql92-runtime-0:1.1-20.el7.x86_64
+postgresql92-scldevel	postgresql92-scldevel-0:1.1-20.el7.x86_64

@@ -1,0 +1,15 @@
+rh-mariadb100-build	rh-mariadb100-build-0:2.0-13.el7.x86_64
+rh-mariadb100-Judy-devel	rh-mariadb100-Judy-devel-0:1.0.5-12.el7.x86_64
+rh-mariadb100-Judy	rh-mariadb100-Judy-0:1.0.5-12.el7.x86_64
+rh-mariadb100-mariadb-bench	rh-mariadb100-mariadb-bench-1:10.0.20-1.el7.x86_64
+rh-mariadb100-mariadb-common	rh-mariadb100-mariadb-common-1:10.0.20-1.el7.x86_64
+rh-mariadb100-mariadb-config	rh-mariadb100-mariadb-config-1:10.0.20-1.el7.x86_64
+rh-mariadb100-mariadb-devel	rh-mariadb100-mariadb-devel-1:10.0.20-1.el7.x86_64
+rh-mariadb100-mariadb-errmsg	rh-mariadb100-mariadb-errmsg-1:10.0.20-1.el7.x86_64
+rh-mariadb100-mariadb-oqgraph-engine	rh-mariadb100-mariadb-oqgraph-engine-1:10.0.20-1.el7.x86_64
+rh-mariadb100-mariadb	rh-mariadb100-mariadb-1:10.0.20-1.el7.x86_64
+rh-mariadb100-mariadb-server	rh-mariadb100-mariadb-server-1:10.0.20-1.el7.x86_64
+rh-mariadb100-mariadb-test	rh-mariadb100-mariadb-test-1:10.0.20-1.el7.x86_64
+rh-mariadb100	rh-mariadb100-0:2.0-13.el7.x86_64
+rh-mariadb100-runtime	rh-mariadb100-runtime-0:2.0-13.el7.x86_64
+rh-mariadb100-scldevel	rh-mariadb100-scldevel-0:2.0-13.el7.x86_64

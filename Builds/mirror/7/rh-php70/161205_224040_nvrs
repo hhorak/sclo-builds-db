@@ -1,0 +1,4 @@
+rh-php70-build	rh-php70-build-0:2.3-1.el7.x86_64
+rh-php70	rh-php70-0:2.3-1.el7.x86_64
+rh-php70-runtime	rh-php70-runtime-0:2.3-1.el7.x86_64
+rh-php70-scldevel	rh-php70-scldevel-0:2.3-1.el7.x86_64

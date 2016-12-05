@@ -1,0 +1,6 @@
+devtoolset-6-build	devtoolset-6-build-0:6.0-6.el7.x86_64
+devtoolset-6	devtoolset-6-0:6.0-6.el7.x86_64
+devtoolset-6-dockerfiles	devtoolset-6-dockerfiles-0:6.0-6.el7.x86_64
+devtoolset-6-perftools	devtoolset-6-perftools-0:6.0-6.el7.x86_64
+devtoolset-6-runtime	devtoolset-6-runtime-0:6.0-6.el7.x86_64
+devtoolset-6-toolchain	devtoolset-6-toolchain-0:6.0-6.el7.x86_64

@@ -1,0 +1,4 @@
+rh-perl524-build	rh-perl524-build-0:2.3-2.el7.x86_64
+rh-perl524	rh-perl524-0:2.3-2.el7.x86_64
+rh-perl524-runtime	rh-perl524-runtime-0:2.3-2.el7.x86_64
+rh-perl524-scldevel	rh-perl524-scldevel-0:2.3-2.el7.x86_64
