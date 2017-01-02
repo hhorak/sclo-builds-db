@@ -1,0 +1,12 @@
+devassist09-build	devassist09-build-0:1.2-3.el6.x86_64
+devassist09	devassist09-0:1.2-3.el6.x86_64
+devassist09-devassistant-assistants-dts	devassist09-devassistant-assistants-dts-0:3.0.0-0.4.ad45baa.el6.noarch
+devassist09-devassistant	devassist09-devassistant-0:0.9.3-3.el6.noarch
+devassist09-devassistant-doc	devassist09-devassistant-doc-0:0.9.3-3.el6.noarch
+devassist09-python-argparse	devassist09-python-argparse-0:1.2.1-3.1.el6.noarch
+devassist09-python-jinja2	devassist09-python-jinja2-0:2.7.2-1.el6.noarch
+devassist09-python-progress	devassist09-python-progress-0:1.2-4.el6.noarch
+devassist09-python-six	devassist09-python-six-0:1.3.0-3.el6.noarch
+devassist09-PyYAML	devassist09-PyYAML-0:3.10-12.el6.x86_64
+devassist09-runtime	devassist09-runtime-0:1.2-3.el6.x86_64
+devassist09-scldevel	devassist09-scldevel-0:1.2-3.el6.x86_64

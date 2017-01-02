@@ -1,0 +1,5 @@
+rh-eclipse46-base	rh-eclipse46-base-0:1-12.el7.x86_64
+rh-eclipse46-build	rh-eclipse46-build-0:1-12.el7.x86_64
+rh-eclipse46	rh-eclipse46-0:1-12.el7.x86_64
+rh-eclipse46-runtime	rh-eclipse46-runtime-0:1-12.el7.x86_64
+rh-eclipse46-scldevel	rh-eclipse46-scldevel-0:1-12.el7.x86_64

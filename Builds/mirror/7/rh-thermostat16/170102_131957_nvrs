@@ -1,0 +1,4 @@
+rh-thermostat16-build	rh-thermostat16-build-0:2.3-70.6.el7.x86_64
+rh-thermostat16	rh-thermostat16-0:2.3-70.6.el7.x86_64
+rh-thermostat16-runtime	rh-thermostat16-runtime-0:2.3-70.6.el7.x86_64
+rh-thermostat16-scldevel	rh-thermostat16-scldevel-0:2.3-70.6.el7.x86_64
